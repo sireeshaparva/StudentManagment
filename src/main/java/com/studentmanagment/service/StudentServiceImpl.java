@@ -3,17 +3,18 @@ package com.studentmanagment.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.studentmanagment.dao.StudentDao;
+import com.studentmanagment.dao.StudentEntity;
 import com.studentmanagment.repository.StudentRepository;
 
 @Service
-public class StudentService {
+public class StudentServiceImpl implements IStudentService {
 	
 	@Autowired
 	private StudentRepository studentRepo;
 
-	public StudentDao registerStudent(StudentDao reg) {
-		StudentDao save= studentRepo.save(reg);
+	@Override
+	public StudentEntity registerStudent(StudentEntity reg) {
+		StudentEntity save= studentRepo.save(reg);
 		return save;
 	}
 
